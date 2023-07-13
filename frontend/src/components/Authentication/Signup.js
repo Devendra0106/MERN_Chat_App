@@ -49,12 +49,10 @@ const Signup = () => {
 			})
 				.then((res) => res.json())
 				.then((data) => {
-					console.log(data);
 					setPic(data.url.toString());
 					setLoading(false);
 				})
 				.catch((err) => {
-					console.log("err-->", err);
 					setLoading(false);
 				});
 		} else {

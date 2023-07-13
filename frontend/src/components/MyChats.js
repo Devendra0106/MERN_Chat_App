@@ -20,7 +20,6 @@ const MyChats = () => {
 				},
 			};
 			const { data } = await axios.get("/api/chat", config);
-			console.log("chats--->", data);
 			setChats(data);
 		} catch (error) {
 			toast({
@@ -39,8 +38,6 @@ const MyChats = () => {
 		fetchChats();
 		// eslint-disable-next-line
 	}, []);
-
-	console.log("Selected Chats--->", selectedChat, chats);
 
 	return (
 		<Box

@@ -46,7 +46,6 @@ const Login = () => {
 				{ email, password },
 				config
 			);
-			console.log("data-->", data);
 			toast({
 				title: "Login successful",
 				status: "success",
@@ -58,7 +57,6 @@ const Login = () => {
 			setLoading(false);
 			navigate("/chats");
 		} catch (err) {
-			console.log("err-->", err);
 			toast({
 				title: "Error Occured!",
 				description: err.response.data.message,

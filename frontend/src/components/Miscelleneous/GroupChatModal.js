@@ -104,6 +104,7 @@ const GroupChatModal = ({ children }) => {
 			});
 		}
 	};
+
 	const handleGroup = (userToAdd) => {
 		if (selectedUsers?.includes(userToAdd)) {
 			toast({

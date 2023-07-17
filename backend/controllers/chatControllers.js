@@ -2,6 +2,9 @@ const asyncHandler = require("express-async-handler");
 const Chat = require("../models/chatModel");
 const User = require("../models/userModel");
 
+/*
+ * accessChat - Get chat data based on user id
+ */
 const accessChat = asyncHandler(async (req, res) => {
 	const { userId } = req.body;
 
@@ -47,6 +50,9 @@ const accessChat = asyncHandler(async (req, res) => {
 	}
 });
 
+/*
+ * fetchChats - Get chat users to be shown on chat list
+ */
 const fetchChats = asyncHandler(async (req, res) => {
 	try {
 		Chat.find({ users: { $elemMatch: { $eq: req.user._id } } })
@@ -67,6 +73,9 @@ const fetchChats = asyncHandler(async (req, res) => {
 	}
 });
 
+/*
+ * createGroupChat - Create new group chat
+ */
 const createGroupChat = asyncHandler(async (req, res) => {
 	if (!req.body.users || !req.body.name) {
 		return res.status(400).send({ message: "Please fill all the fields" });
@@ -100,6 +109,9 @@ const createGroupChat = asyncHandler(async (req, res) => {
 	}
 });
 
+/*
+ * renameGroup - Rename group chat
+ */
 const renameGroup = asyncHandler(async (req, res) => {
 	const { chatId, chatName } = req.body;
 	const updatedChat = await Chat.findByIdAndUpdate(
@@ -120,6 +132,9 @@ const renameGroup = asyncHandler(async (req, res) => {
 	}
 });
 
+/*
+ * addToGroup - add new member to group
+ */
 const addToGroup = asyncHandler(async (req, res) => {
 	const { chatId, userId } = req.body;
 	const added = await Chat.findByIdAndUpdate(
@@ -140,6 +155,9 @@ const addToGroup = asyncHandler(async (req, res) => {
 	}
 });
 
+/*
+ * removeFromGroup - remove member from group
+ */
 const removeFromGroup = asyncHandler(async (req, res) => {
 	const { chatId, userId } = req.body;
 	const removed = await Chat.findByIdAndUpdate(

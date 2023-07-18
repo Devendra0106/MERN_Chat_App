@@ -3,6 +3,9 @@ const Message = require("../models/messageModel");
 const User = require("../models/userModel");
 const Chat = require("../models/chatModel");
 
+/*
+ * sendMessage - send Message
+ */
 const sendMessage = asyncHandler(async (req, res) => {
 	const { content, chatId } = req.body;
 
@@ -38,6 +41,9 @@ const sendMessage = asyncHandler(async (req, res) => {
 	}
 });
 
+/*
+ * allMessage - get all Messages
+ */
 const allMessage = asyncHandler(async (req, res) => {
 	try {
 		const messages = await Message.find({ chat: req.params.chatId })

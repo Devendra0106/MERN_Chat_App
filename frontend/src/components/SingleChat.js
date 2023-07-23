@@ -14,6 +14,8 @@ import { getSender, getSenderFull } from "../Config/ChatLogics";
 import ProfileModel from "./Miscelleneous/ProfileModel";
 import UpdateGroupChatModel from "./Miscelleneous/UpdateGroupChatModel";
 import axios from "axios";
+import "./styles.css";
+import ScrollableChat from "./ScrollableChat";
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 	const [messages, setMessages] = useState();
@@ -34,13 +36,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 			};
 
 			setLoading(true);
-
+			console.log("selectedChat-->", selectedChat);
 			const { data } = await axios.get(
 				`/api/message/${selectedChat._id}`,
 				config
 			);
 
-			console.log(messages);
 			setMessages(data);
 			setLoading(false);
 		} catch (error) {
@@ -54,6 +55,8 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 			});
 		}
 	};
+
+	console.log("messages from selectedChat-->", messages);
 
 	useEffect(() => {
 		fetchMessages();
@@ -129,6 +132,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 								<UpdateGroupChatModel
 									fetchAgain={fetchAgain}
 									setFetchAgain={setFetchAgain}
+									fetchMessages={fetchMessages}
 								/>
 							</>
 						)}
@@ -139,12 +143,13 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 						justifyContent="flex-end"
 						p={3}
 						bg="#E8E8E8"
+						// backgroundImage="url('../background-02.png')"
 						w="100%"
 						h="100%"
 						borderRadius="lg"
 						overflowY="hidden"
 					>
-						{!loading ? (
+						{loading ? (
 							<Spinner
 								size="xl"
 								w={20}
@@ -153,7 +158,9 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 								margin="auto"
 							/>
 						) : (
-							<div>{/*Messages*/}</div>
+							<div className="messages">
+								<ScrollableChat messages={messages} />
+							</div>
 						)}
 						<FormControl onKeyDown={sendMessage} isRequired mt={3}>
 							<Input

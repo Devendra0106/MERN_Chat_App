@@ -28,6 +28,8 @@ import axios from "axios";
 import ChatLoading from "../ChatLoading";
 import UserListItem from "../UserAvatar/UserListItem";
 import { getSender } from "../../Config/ChatLogics";
+import NotificationBadge from "react-notification-badge";
+import { Effect } from "react-notification-badge";
 
 const SideDrawer = () => {
 	const navigate = useNavigate();
@@ -139,7 +141,11 @@ const SideDrawer = () => {
 
 				<div>
 					<Menu>
-						<MenuButton>
+						<MenuButton margin="0px 7px">
+							<NotificationBadge
+								count={notification.length}
+								effect={Effect.SCALE}
+							/>
 							<BellIcon fontSize="2xl" margin={1} />
 						</MenuButton>
 						<MenuList p={2}>

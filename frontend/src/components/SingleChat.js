@@ -103,7 +103,11 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 	});
 
 	const sendMessage = async (event) => {
-		if (event.key === "Enter" && newMessage) {
+		console.log("In function-->", event);
+		if (
+			(event.key === "Enter" || event._reactName === "onClick") &&
+			newMessage
+		) {
 			socket.emit("stop typing", selectedChat._id);
 			try {
 				const config = {
@@ -234,13 +238,34 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 							) : (
 								<></>
 							)}
-							<Input
-								variant="filled"
-								bg="E0E0E0"
-								placeholder="Enter a message..."
-								onChange={typingHandler}
-								value={newMessage}
-							/>
+							<Box
+								display="flex"
+								flexDirection="row"
+								justifyContent="space-between"
+							>
+								<Input
+									variant="filled"
+									bg="E0E0E0"
+									placeholder="Enter a message..."
+									onChange={typingHandler}
+									value={newMessage}
+								/>
+								<Box
+									bg="#FFF"
+									color="#12c97d"
+									padding="7px 8px"
+									margin="0px 8px"
+									border="1px solid white"
+									border-radius="5px"
+									_hover={{
+										color: "teal.500",
+										cursor: "pointer",
+									}}
+									onClick={sendMessage}
+								>
+									<i class="fas fa-paper-plane fa-lg"></i>
+								</Box>
+							</Box>
 						</FormControl>
 					</Box>
 				</>

@@ -135,8 +135,19 @@ const SideDrawer = () => {
 					</Button>
 				</Tooltip>
 
-				<Text fontSize="2xl" fontFamily="Work sans">
-					Talk-A-Tive
+				<Text
+					fontSize="2xl"
+					fontFamily="Work sans"
+					fontWeight="bold"
+					align="center"
+					textAlign="center"
+					padding={1}
+					color="#12c97d"
+				>
+					<span style={{ padding: "2px", color: "#12c97d" }}>
+						<i class="fab fa-whatsapp fa-lg"></i>
+					</span>{" "}
+					QuickChat
 				</Text>
 
 				<div>
@@ -188,7 +199,9 @@ const SideDrawer = () => {
 			<Drawer placement="left" onClose={onClose} isOpen={isOpen}>
 				<DrawerOverlay />
 				<DrawerContent>
-					<DrawerHeader borderBottom="1px">Search Users</DrawerHeader>
+					<DrawerHeader borderBottom="1px">
+						<i class="fas fa-users fa-lg"></i> Search Users
+					</DrawerHeader>
 					<DrawerBody>
 						<Box display="flex" pb={2}>
 							<Input

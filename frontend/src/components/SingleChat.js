@@ -18,6 +18,7 @@ import "./styles.css";
 import ScrollableChat from "./ScrollableChat";
 import Lottie from "lottie-react";
 import typingAnimation from "../animations/typing.json";
+import "../App.css";
 
 import io from "socket.io-client";
 const ENDPOINT = "http://localhost:5000";
@@ -272,12 +273,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 			) : (
 				<Box
 					display="flex"
+					flexDirection="column"
 					alignItems="center"
 					justifyContent="center"
 					h="100%"
 				>
+					<Box className="emptyDrawer"></Box>
 					<Text fontSize="2xl" pb={3} fontFamily="Work sans">
-						Click on a user to start chatting
+						Click on a user to start New Chat
 					</Text>
 				</Box>
 			)}

@@ -97,11 +97,12 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 					setFetchAgain(!fetchAgain);
 				}
 			} else {
-				console.log("received messages:", messages, newMessageRecieved);
+				console.log("received messages: bef", messages, newMessageRecieved);
 				setMessages([...messages, newMessageRecieved]);
+				console.log("received messages: aft", messages);
 			}
 		});
-	});
+	}, [messages]);
 
 	const sendMessage = async (event) => {
 		console.log("In function-->", event);
@@ -173,7 +174,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 						pb={3}
 						px={2}
 						w="100%"
-						fontFamily="Work sans"
+						fontFamily="Roboto Slab"
 						display="flex"
 						justifyContent={{ base: "space-between" }}
 						alignItems="center"
@@ -279,7 +280,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 					h="100%"
 				>
 					<Box className="emptyDrawer"></Box>
-					<Text fontSize="2xl" pb={3} fontFamily="Work sans">
+					<Text fontSize="2xl" pb={3} fontFamily="Roboto Slab">
 						Click on a user to start New Chat
 					</Text>
 				</Box>

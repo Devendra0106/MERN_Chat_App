@@ -98,7 +98,7 @@ const Login = () => {
 			</FormControl>
 
 			<Button
-				colorScheme="blue"
+				colorScheme="teal"
 				width="100%"
 				color="white"
 				style={{ marginTop: 15 }}
@@ -108,7 +108,7 @@ const Login = () => {
 			</Button>
 			<Button
 				variant="solid"
-				colorScheme="red"
+				colorScheme="purple"
 				width="100%"
 				style={{ marginTop: 15 }}
 				isLoading={loading}

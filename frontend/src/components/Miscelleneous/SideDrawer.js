@@ -135,20 +135,21 @@ const SideDrawer = () => {
 					</Button>
 				</Tooltip>
 
-				<Text
+				<Box
+					display="flex"
 					fontSize="2xl"
-					fontFamily="Work sans"
+					fontFamily="Merienda"
 					fontWeight="bold"
 					align="center"
 					textAlign="center"
 					padding={1}
 					color="#12c97d"
 				>
-					<span style={{ padding: "2px", color: "#12c97d" }}>
+					<Box style={{ padding: "2px 5px 0px", color: "#12c97d" }}>
 						<i class="fab fa-whatsapp fa-lg"></i>
-					</span>{" "}
-					QuickChat
-				</Text>
+					</Box>
+					<Box display={{ base: "none", md: "flex" }}>QuickChat</Box>
+				</Box>
 
 				<div>
 					<Menu>

@@ -1,5 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap'); */
 
+/* @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,600&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Acme&family=Noto+Sans&display=swap'); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Acme&family=Merienda&family=Noto+Sans&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Merienda&family=Noto+Sans&family=Roboto&family=Roboto+Slab&display=swap');
 .App {
   min-height: 100vh;
   display: flex;

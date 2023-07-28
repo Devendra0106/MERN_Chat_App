@@ -1,5 +1,6 @@
 import { ViewIcon } from "@chakra-ui/icons";
 import {
+	Box,
 	Button,
 	IconButton,
 	Image,
@@ -30,21 +31,21 @@ const ProfileModel = ({ user, children }) => {
 			)}
 			<Modal isOpen={isOpen} onClose={onClose} isCentered>
 				<ModalOverlay />
-				<ModalContent h="410px">
+				<ModalContent h="250px">
 					<ModalHeader
-						fontSize="40px"
-						fontFamily="Work sans"
+						fontSize="28px"
+						fontFamily="Roboto Slab"
 						display="flex"
-						justifyContent="center"
+						justifyContent="left"
 					>
 						{user.name}
 					</ModalHeader>
 					<ModalCloseButton />
 					<ModalBody
 						display="flex"
-						flexDirection="column"
+						flexDirection="row"
 						justifyContent="space-between"
-						alignItems="center"
+						alignItems="top"
 					>
 						<Image
 							borderRadius="full"
@@ -52,19 +53,24 @@ const ProfileModel = ({ user, children }) => {
 							src={user.pic}
 							alt={user.name}
 						/>
-						<Text
-							fontSize={{ base: "28px", md: "30px" }}
-							fontFamily="Work sans"
-						>
-							{user.email}
-						</Text>
+						<Box fontSize="17px" fontFamily="Roboto Slab" mt={2}>
+							<Text>
+								<b>Id:</b> {user._id}
+							</Text>
+							<Text>
+								<b>Phone No:</b> +91 8822334455
+							</Text>
+							<Text>
+								<b>Email:</b> {user.email}
+							</Text>
+						</Box>
 					</ModalBody>
 
-					<ModalFooter>
-						<Button colorScheme="blue" mr={3} onClick={onClose}>
+					{/* <ModalFooter>
+						<Button colorScheme="teal" mr={3} onClick={onClose}>
 							Close
 						</Button>
-					</ModalFooter>
+					</ModalFooter> */}
 				</ModalContent>
 			</Modal>
 		</>

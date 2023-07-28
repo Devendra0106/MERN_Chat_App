@@ -36,9 +36,21 @@ const HomePage = () => {
 				borderRadius="lg"
 				borderWidth="1px"
 			>
-				<Text fontSize="4xl" fontFamily="Work sans">
-					Talk-A-Tive
-				</Text>
+				<Box
+					display="flex"
+					fontSize="3xl"
+					fontFamily="Merienda"
+					fontWeight="bold"
+					align="center"
+					textAlign="center"
+					padding={1}
+					color="teal"
+				>
+					<Box style={{ padding: "2px 5px 0px", color: "teal" }}>
+						<i class="fab fa-whatsapp fa-lg"></i>
+					</Box>
+					<Box display={{ base: "none", md: "flex" }}>QuickChat</Box>
+				</Box>
 			</Box>
 			<Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">
 				<Tabs variant="soft-rounded">

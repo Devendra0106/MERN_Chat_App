@@ -188,10 +188,20 @@ const SideDrawer = () => {
 						</MenuButton>
 						<MenuList>
 							<ProfileModel user={user}>
-								<MenuItem>My Profile</MenuItem>
+								<MenuItem>
+									<span style={{ margin: "2px 10px 0px 2px" }}>
+										<i class="far fa-id-card"></i>
+									</span>{" "}
+									My Profile
+								</MenuItem>
 							</ProfileModel>
 							<MenuDivider />
-							<MenuItem onClick={logoutHandler}>Logout</MenuItem>
+							<MenuItem onClick={logoutHandler}>
+								<span style={{ margin: "2px 10px 0px 2px" }}>
+									<i class="fas fa-sign-out-alt"></i>
+								</span>{" "}
+								Logout
+							</MenuItem>
 						</MenuList>
 					</Menu>
 				</div>

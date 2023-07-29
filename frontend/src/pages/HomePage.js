@@ -49,7 +49,7 @@ const HomePage = () => {
 					<Box style={{ padding: "2px 5px 0px", color: "teal" }}>
 						<i class="fab fa-whatsapp fa-lg"></i>
 					</Box>
-					<Box display={{ base: "none", md: "flex" }}>QuickChat</Box>
+					<Box>QuickChat</Box>
 				</Box>
 			</Box>
 			<Box bg="white" w="100%" p={4} borderRadius="lg" borderWidth="1px">

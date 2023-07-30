@@ -68,8 +68,6 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 		}
 	};
 
-	console.log("messages from selectedChat-->", messages);
-
 	useEffect(() => {
 		socket = io(ENDPOINT);
 		socket.emit("setup", user);

@@ -13,7 +13,7 @@ dotenv.config();
 connectDB();
 const app = express();
 
-app.use(express.json()); // to accept JSON data
+app.use(express.json()); // to accept JSON data(server should accept JSON data as we are passing data from frontend is in JSON format)
 
 app.get("/", (req, res) => {
 	res.send("API is running Successfully!");
@@ -23,8 +23,8 @@ app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
 
-app.use(notFound);
-app.use(errorHandler);
+app.use(notFound); // if route not found, gives 404 err
+app.use(errorHandler); // any other error coming from controllers
 
 const PORT = process.env.PORT || 5000;
 

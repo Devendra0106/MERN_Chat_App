@@ -5,6 +5,8 @@ const e = require("express");
 
 /*
  * registerUser - Sign up new User
+ * method - POST
+ * endpoint - /api/user/
  */
 const registerUser = asyncHandler(async (req, res) => {
 	const { name, email, password, pic } = req.body;
@@ -43,7 +45,9 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 /*
- * authUser - Sign in new User
+ * authUser - Sign in User
+ * method - POST
+ * endpoint - /api/user/login
  */
 const authUser = asyncHandler(async (req, res) => {
 	const { email, password } = req.body;
@@ -64,6 +68,9 @@ const authUser = asyncHandler(async (req, res) => {
 
 /*
  * allUsers - Get all users
+ * method - GET
+ * endpoint - /api/user/
+ * searchparam - /api/user?search=dev
  */
 const allUsers = asyncHandler(async (req, res) => {
 	const keyword = req.query.search

@@ -24,6 +24,7 @@ const accessChat = asyncHandler(async (req, res) => {
 		.populate("latestMessage");
 
 	isChat = await User.populate(isChat, {
+		//populate specific properties from sender of latestMessage from chatModel.
 		path: "latestMessage.sender",
 		select: "name pic email",
 	});
@@ -118,7 +119,7 @@ const renameGroup = asyncHandler(async (req, res) => {
 		chatId,
 		{ chatName },
 		{
-			new: true, // return updated value
+			new: true, // need to add this property to return updated value of chatName
 		}
 	)
 		.populate("users", "-password")

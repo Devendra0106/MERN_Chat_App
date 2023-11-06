@@ -11,6 +11,7 @@ const {
 
 const router = express.Router();
 
+//Endpoint ==> /api/chat
 router.route("/").post(protect, accessChat);
 router.route("/").get(protect, fetchChats);
 router.route("/group").post(protect, createGroupChat);

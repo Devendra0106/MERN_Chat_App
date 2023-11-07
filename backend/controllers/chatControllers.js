@@ -4,6 +4,8 @@ const User = require("../models/userModel");
 
 /*
  * accessChat - Get chat data based on user id
+ * method - POST
+ * endpoint - /api/chat/
  */
 const accessChat = asyncHandler(async (req, res) => {
 	const { userId } = req.body;
@@ -53,6 +55,8 @@ const accessChat = asyncHandler(async (req, res) => {
 
 /*
  * fetchChats - Get chat users to be shown on chat list
+ * method - GET
+ * endpoint - /api/chat/
  */
 const fetchChats = asyncHandler(async (req, res) => {
 	try {
@@ -76,6 +80,8 @@ const fetchChats = asyncHandler(async (req, res) => {
 
 /*
  * createGroupChat - Create new group chat
+ * method - POST
+ * endpoint - /api/chat/group
  */
 const createGroupChat = asyncHandler(async (req, res) => {
 	if (!req.body.users || !req.body.name) {
@@ -112,6 +118,8 @@ const createGroupChat = asyncHandler(async (req, res) => {
 
 /*
  * renameGroup - Rename group chat
+ * method - PUT
+ * endpoint - /api/chat/grouprename
  */
 const renameGroup = asyncHandler(async (req, res) => {
 	const { chatId, chatName } = req.body;
@@ -135,6 +143,8 @@ const renameGroup = asyncHandler(async (req, res) => {
 
 /*
  * addToGroup - add new member to group
+ * method - PUT
+ * endpoint - /api/chat/groupadd
  */
 const addToGroup = asyncHandler(async (req, res) => {
 	const { chatId, userId } = req.body;
@@ -158,6 +168,8 @@ const addToGroup = asyncHandler(async (req, res) => {
 
 /*
  * removeFromGroup - remove member from group
+ * method - PUT
+ * endpoint - /api/chat/groupremove
  */
 const removeFromGroup = asyncHandler(async (req, res) => {
 	const { chatId, userId } = req.body;

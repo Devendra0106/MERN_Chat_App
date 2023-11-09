@@ -8,7 +8,7 @@ import { useState } from "react";
 
 const ChatPage = () => {
 	const { user } = ChatState();
-	const { fetchAgain, setFetchAgain } = useState(false);
+	const { fetchAgain, setFetchAgain } = useState(false); // To fetch chat data whenever group or chat deleted
 
 	return (
 		<div style={{ width: "100%" }}>

@@ -5,6 +5,7 @@ const Chat = require("../models/chatModel");
 
 /*
  * sendMessage - send Message
+ * method - POST
  * endpoint - /api/message/
  */
 const sendMessage = asyncHandler(async (req, res) => {
@@ -44,6 +45,7 @@ const sendMessage = asyncHandler(async (req, res) => {
 
 /*
  * allMessage - get all Messages
+ * method - GET
  * endpoint - /api/message/:chatId
  */
 const allMessage = asyncHandler(async (req, res) => {

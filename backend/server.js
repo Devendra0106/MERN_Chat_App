@@ -44,12 +44,14 @@ io.on("connection", (socket) => {
 	console.log("connected to socket.io");
 
 	socket.on("setup", (userData) => {
-		socket.join(userData._id);
+		//take user data from frontend
+		socket.join(userData._id); // create room for perticular user
 		console.log("UserId: ", userData._id);
 		socket.emit("connected");
 	});
 
 	socket.on("join chat", (room) => {
+		//when user selects chat from UI
 		socket.join(room);
 		console.log("User Joined room: ", room);
 	});
@@ -58,6 +60,7 @@ io.on("connection", (socket) => {
 	socket.on("stop typing", (room) => socket.in(room).emit("stop typing"));
 
 	socket.on("new message", (newMessageRecieved) => {
+		//when message received in same room
 		let chat = newMessageRecieved.chat;
 
 		if (!chat.users) return console.log("chat.users not defined");

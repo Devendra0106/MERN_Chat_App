@@ -7,6 +7,7 @@ const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const { errorHandler, notFound } = require("./middleware/errorMiddleware");
+const path = require("path");
 
 dotenv.config();
 
@@ -15,13 +16,25 @@ const app = express();
 
 app.use(express.json()); // to accept JSON data(server should accept JSON data as we are passing data from frontend is in JSON format)
 
-app.get("/", (req, res) => {
-	res.send("API is running Successfully!");
-});
-
 app.use("/api/user", userRoutes);
 app.use("/api/chat", chatRoutes);
 app.use("/api/message", messageRoutes);
+
+// -------------------------- Deployment -----------------------------
+
+const _dirname1 = path.resolve();
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.join(_dirname1, "/frontend/build")));
+	app.get("*", (req, res) => {
+		res.sendFile(path.resolve(_dirname1, "frontend", "build", "index.html"));
+	});
+} else {
+	app.get("/", (req, res) => {
+		res.send("API is running Successfully!");
+	});
+}
+
+// -------------------------- Deployment -----------------------------
 
 app.use(notFound); // if route not found, gives 404 err
 app.use(errorHandler); // any other error coming from controllers
